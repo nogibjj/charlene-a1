@@ -9,11 +9,10 @@ async def root():
     return {"message": "Hello Databricks"}
 
 @app.get("/query")
-async def query(query: str):
+async def query():
     """Execute a SQL query"""
-
     result = querydb()
-    return {"reqult": result}
+    return {"result": result}
 
 if __name__ == '__main__':
     uvicorn.run(app, port=8080, host="0.0.0.0")
